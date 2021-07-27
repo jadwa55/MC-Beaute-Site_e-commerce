@@ -19,6 +19,7 @@ class CreateProjectsTable extends Migration
             $table->string('Introduction', 500)->nullable();
             $table->string('Categories', 100)->nullable();
             $table->string('image',255)->nullable();
+            $table->string('quantite',255)->nullable();
             $table->decimal('cost', 22)->nullable()->default(0.00);
             // $table->timestamps();
             $table->timestamp('created_at')->useCurrent();
