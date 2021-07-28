@@ -16,14 +16,14 @@ class CreateProjectsTable extends Migration
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
             $table->string('name', 255)->nullable();
-            $table->string('Introduction', 500)->nullable();
-            $table->string('Categories', 100)->nullable();
+            $table->string('introduction', 500)->nullable();
+            $table->string('categories', 100)->nullable();
             $table->string('image',255)->nullable();
-            $table->string('quantite',255)->nullable();
-            $table->decimal('cost', 22)->nullable()->default(0.00);
+            $table->decimal('quantite')->nullable();
+            $table->decimal('cost')->nullable()->default(0.00);
             // $table->timestamps();
             $table->timestamp('created_at')->useCurrent();
-            $table->timestamp('update_at')->nullable();
+            $table->timestamp('updated_at')->nullable();
         });
     }
 

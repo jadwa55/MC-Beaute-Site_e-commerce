@@ -14,9 +14,9 @@ use App\Http\Controllers\ProjectController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('Projects.Index');
+// });
 
 
 Route::resource('projects', ProjectController::class);

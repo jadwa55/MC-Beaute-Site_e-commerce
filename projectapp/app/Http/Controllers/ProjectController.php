@@ -15,8 +15,9 @@ class ProjectController extends Controller
     {
         $projects = Project::latest()->paginate(5);
 
-        return view('projects.index', compact('projects'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        return view('projects.index', [
+            'projects' => $projects
+        ]);
     }
 
     /**
@@ -26,6 +27,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
+        // return 'bidoni jadwa';
         return view('projects.create');
     }
 
@@ -37,10 +39,11 @@ class ProjectController extends Controller
      */
     public function store(Request $request)
     {
+        // return $request;
         $request->validate([
             'name' => 'required',
             'introduction' => 'required',
-            'Categories' => 'required',
+            'categories' => 'required',
             'image' => 'required',
             'quantite' => 'required',
             'cost' => 'required'
@@ -85,7 +88,7 @@ class ProjectController extends Controller
         $request->validate([
             'name' => 'required',
             'introduction' => 'required',
-            'Categories' => 'required',
+            'categories' => 'required',
             'image' => 'required',
             'quantite' => 'required',
             'cost' => 'required'

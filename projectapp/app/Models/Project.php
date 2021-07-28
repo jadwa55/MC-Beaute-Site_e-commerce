@@ -13,7 +13,7 @@ class Project extends Model
     public $timestamps = true;
 
     protected $casts = [
-        'cost' => 'float'
+        'quantite' => 'float'
     ];
 
 
