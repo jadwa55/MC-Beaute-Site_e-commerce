@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\ViewController;
+use App\Http\Controllers\CategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +15,15 @@ use App\Http\Controllers\ProjectController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', [ViewController::class, 'index'])->name('home');
 
-// Route::get('/', function () {
-//     return view('Projects.Index');
-// });
-
-
+// Route::get('/', [ProjectController::class,'index']);
+// Route::get('/home', function () {
+//     return view('Projects.view');
+// })->name('home');
 Route::resource('projects', ProjectController::class);
+// Route::get('/home', [ViewController::class, 'home']);
+
+// Route::get('home', [ViewController::class, 'index']);
+
+Route::resource('category', CategoryController::class);

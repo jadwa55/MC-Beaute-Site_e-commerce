@@ -10,12 +10,10 @@ class Project extends Model
     use HasFactory;
 
     protected $table = 'projects';
-    public $timestamps = true;
 
     protected $casts = [
         'quantite' => 'float'
     ];
-
 
     protected $fillable = [
         'name',

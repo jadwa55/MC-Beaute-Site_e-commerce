@@ -27,11 +27,14 @@
                 <li><a href="index.html" class="active"><span class="las la-clipboard-list"></span>
                     <span>Products</span></a>
                 </li>
+                <li><a href="index.html"><span class="las la-clipboard-list"></span>
+                    <span>Categories</span></a>
+                </li>
                 <li><a href=""><span class="las la-shopping-bag"></span>
                     <span>Orders</span></a>
                 </li>
-                <li><a href=""><span class="las la-receipt"></span>
-                    <span>Inventory</span></a>
+                <li><a href="{{ route('home') }}"><span class="las la-receipt"></span>
+                    <span>Home page</span></a>
                 </li>
                 <li><a href=""><span class="las la-user-circle"></span>
                     <span>Accounts</span></a>
