@@ -18,10 +18,15 @@ class Project extends Model
     protected $fillable = [
         'name',
         'introduction',
-        'categories',
+        'category_id',
         'image',
         'quantite',
         'cost'
     ];
+
+    // public function categoryinfo()
+    // {
+    //     return $this->hasOne(Category::class,'id');
+    // }
 
 }

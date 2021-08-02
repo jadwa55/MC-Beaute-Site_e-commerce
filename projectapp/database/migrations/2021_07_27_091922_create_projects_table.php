@@ -17,13 +17,15 @@ class CreateProjectsTable extends Migration
             $table->id();
             $table->string('name', 255)->nullable();
             $table->string('introduction', 500)->nullable();
-            $table->string('categories', 100)->nullable();
+            // $table->unsignedBigInteger('category_id');
             $table->string('image',255)->nullable();
             $table->decimal('quantite')->nullable();
             $table->decimal('cost')->nullable()->default(0.00);
             // $table->timestamps();
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->nullable();
+
+            $table->foreignId('category_id')->constrained('categorys');
         });
     }
 

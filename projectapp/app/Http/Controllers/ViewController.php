@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Project;
+use App\Models\Category;
 use App\Models\View;
 use Illuminate\Http\Request;
 
@@ -15,12 +16,20 @@ class ViewController extends Controller
      */
     public function index()
     {
+        // $projects = Project::with('categoryinfo')->latest()->paginate(8);
         $projects = Project::latest()->paginate(8);
         // $projects = Project::orderBy('created_at','desc')->get();
 
+        // $categorys = Category::all();
+        $categorys = Category::orderBy('created_at','desc')->get();
+
+        // return $projects;
         return view('projects.view',[
-            'projects' => $projects
+            'projects' => $projects,
+            'categorys' => $categorys
         ]);
+
+
     }
 
     /**

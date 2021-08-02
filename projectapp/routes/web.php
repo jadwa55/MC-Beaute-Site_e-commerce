@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AllProductsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ViewController;
@@ -26,4 +27,6 @@ Route::resource('projects', ProjectController::class);
 
 // Route::get('home', [ViewController::class, 'index']);
 
-Route::resource('category', CategoryController::class);
+Route::resource('categorys', CategoryController::class);
+
+Route::get('/produits',[AllProductsController::class,'index'])->name('produits');

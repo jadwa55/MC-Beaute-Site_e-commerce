@@ -14,12 +14,13 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        // $categorys = Category::latest()->paginate(8);
-        $categorys = Category::orderBy('created_at','desc')->get();
+        $categorys = Category::all();
+        // $categorys = Category::orderBy('created_at','desc')->get();
 
-        return view('projects.view',[
+        return view('categorys.index',[
             'categorys' => $categorys
         ]);
+
     }
 
     /**
@@ -30,6 +31,7 @@ class CategoryController extends Controller
     public function create()
     {
         //
+        return view('categorys.create');
     }
 
     /**
@@ -41,6 +43,15 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'name' => 'required',
+            'image' => 'required'
+        ]);
+
+        Category::create($request->all());
+
+        return redirect()->route('categorys.index')
+            ->with('success', 'category created successfully.');
     }
 
     /**
@@ -52,6 +63,7 @@ class CategoryController extends Controller
     public function show(Category $category)
     {
         //
+        return view('categorys.show', compact('project'));
     }
 
     /**
@@ -62,7 +74,7 @@ class CategoryController extends Controller
      */
     public function edit(Category $category)
     {
-        //
+        return view('categorys.edit', compact('category'));
     }
 
     /**
@@ -74,7 +86,14 @@ class CategoryController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'image' => 'required'
+        ]);
+        $category->update($request->all());
+
+        return redirect()->route('categorys.index')
+            ->with('success', 'category updated successfully');
     }
 
     /**
@@ -85,6 +104,9 @@ class CategoryController extends Controller
      */
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+
+        return redirect()->route('categorys.index')
+            ->with('success', 'Category deleted successfully');
     }
 }

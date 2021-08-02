@@ -17,8 +17,8 @@
                 </div>
                 <nav>
                     <ul id="MenuItems">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="product.html">Product</a></li>
+                        <li><a href="{{ route('home') }}">Home</a></li>
+                        <li><a href="{{ route('produits') }}">Product</a></li>
                         <li><a href="">About</a></li>
                         <li><a href="">Contact</a></li>
                         <li><a href="account.html">Account</a></li>
@@ -39,7 +39,7 @@
         </div>
     </div>
     <!-- --------------------------- featured categories-------------- -->
-    <div class="categories">
+    {{-- <div class="categories">
         <div class="small-container">
             <div class="row">
                 <div class="col-3">
@@ -53,59 +53,21 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <!-- -----------------------featured products --------------------------- -->
     <div class="small-container">
-        <h2 class="title">Featured Products</h2>
-        <div class="row">
-            <div class="col-4">
-                <a href="product-details.html"><img src="{{asset('img/5.jpg')}}"></a>
-                <a href="product-details.html"><h4>Test</h4></a>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
+        <h2 class="title">Our Categories</h2>
+        <div class="categories">
+            <div class="small-container">
+                <div class="row">
+                    @foreach ($categorys as $category)
+                    <div class="col-3">
+                        <img src="{{ $category->image }}">
+                        {{-- <h4>{{ $category->name }}</h4> --}}
+                    </div>
+                    @endforeach
                 </div>
-                <p>$50.00</p>
-            </div>
-            <div class="col-4">
-                <img src="">
-                <h4>Title</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>$50.00</p>
-            </div>
-            <div class="col-4">
-                <img src="">
-                <h4>Title</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>$50.00</p>
-            </div>
-            <div class="col-4">
-                <img src="2.jpg">
-                <h4>Title</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>$50.00</p>
             </div>
         </div>
 

@@ -24,10 +24,10 @@
                 <li><a href=""><span class="las la-users"></span>
                     <span>Customers</span></a>
                 </li>
-                <li><a href="{{ route('projects.index') }}" class="active"><span class="las la-clipboard-list"></span>
+                <li><a href="{{ route('projects.index') }}"><span class="las la-clipboard-list"></span>
                     <span>Products</span></a>
                 </li>
-                <li><a href="{{ route('categorys.index') }}"><span class="las la-clipboard-list"></span>
+                <li><a href="index.html" class="active"><span class="las la-clipboard-list"></span>
                     <span>Categories</span></a>
                 </li>
                 <li><a href=""><span class="las la-shopping-bag"></span>
@@ -73,10 +73,10 @@
                 <div class="project" style="margin-top: 30px">
                     <div class="card">
                         <div class="card-header">
-                            <h2>Recent Products</h2>
+                            <h2>Recent categories</h2>
 
-                            <button><a class="btn btn-success" href="{{ route('projects.create') }}" title="Create a project"> <i class="fas fa-plus-circle"></i>
-                            </span>Add new product</a></button>
+                            <button><a class="btn btn-success" href="{{ route('categorys.create') }}" title="Create a category"> <i class="fas fa-plus-circle"></i>
+                            </span>Add new category</a></button>
                         </div>
 
 
@@ -92,35 +92,27 @@
                                     <thead>
                                         <tr>
                                             <td>ID</td>
-                                            <td>Product name</td>
-                                            <td>Introduction</td>
-                                            <td>Categorie</td>
+                                            <td>categorie name</td>
                                             <td>Image</td>
-                                            <td>Quantite</td>
-                                            <td>Price</td>
                                             <td>Date Created</td>
                                             <td width="280px">Action</td>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($projects as $project)
+                                        @foreach ($categorys as $category)
                                         <tr>
-                                            <td>{{ $project->id}}</td>
-                                            <td>{{ $project->name }}</td>
-                                            <td>{{ $project->introduction }}</td>
-                                            <td>{{ $project->category_id }}</td>
-                                            <td>{{ $project->image }}</td>
-                                            <td>{{ $project->quantite }}</td>
-                                            <td>{{ $project->cost }}</td>
-                                            <td>{{ date_format($project->created_at, 'jS M Y') }}</td>
+                                            <td>{{ $category->id}}</td>
+                                            <td>{{ $category->name}}</td>
+                                            <td>{{ $category->image }}</td>
+                                            <td>{{ date_format($category->created_at, 'jS M Y') }}</td>
                                             <td>
-                                                <form action="{{ route('projects.destroy', $project->id) }}" method="POST">
+                                                <form action="{{ route('categorys.destroy', $category->id) }}" method="POST">
 
-                                                    <a href="{{ route('projects.show', $project->id) }}" title="show">
+                                                    <a href="{{ route('categorys.show', $category->id) }}" title="show">
                                                         <i class="fas fa-eye text-success  fa-lg"></i>
                                                     </a>
 
-                                                    <a href="{{ route('projects.edit', $project->id) }}">
+                                                    <a href="{{ route('categorys.edit', $category->id) }}">
                                                         <i class="fas fa-edit  fa-lg"></i>
 
                                                     </a>
@@ -141,68 +133,6 @@
                             </div>
                         </div>
                     </div>
-                {{-- </div> --}}
-
-                {{-- <div class="customers">
-                    <div class="card">
-                        <div class="card-header">
-                            <h2>New Customers</h2>
-
-                            <button>See all <span class="las la-arrow-right">
-                            </span></button>
-                        </div>
-
-                        <div class="card-body">
-                            <div class="customer">
-                                <div class="info">
-                                    <img src="img/2.jpg" width="40px"
-                                    height="40px" alt="">
-                                    <div>
-                                        <h4>SALMA</h4>
-                                        <small>CEO</small>
-                                    </div>
-                                </div>
-                                <div class="contact">
-                                    <span class="las la-user-circle"></span>
-                                    <span class="las la-comment"></span>
-                                    <span class="las la-phone"></span>
-                                </div>
-                            </div>
-
-                            <div class="customer">
-                                <div class="info">
-                                    <img src="img/2.jpg" width="40px"
-                                    height="40px" alt="">
-                                    <div>
-                                        <h4>SALMA</h4>
-                                        <small>CEO</small>
-                                    </div>
-                                </div>
-                                <div class="contact">
-                                    <span class="las la-user-circle"></span>
-                                    <span class="las la-comment"></span>
-                                    <span class="las la-phone"></span>
-                                </div>
-                            </div>
-
-                            <div class="customer">
-                                <div class="info">
-                                    <img src="img/2.jpg" width="40px"
-                                    height="40px" alt="">
-                                    <div>
-                                        <h4>SALMA</h4>
-                                        <small>CEO</small>
-                                    </div>
-                                </div>
-                                <div class="contact">
-                                    <span class="las la-user-circle"></span>
-                                    <span class="las la-comment"></span>
-                                    <span class="las la-phone"></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div> --}}
             </div>
 
         </main>
