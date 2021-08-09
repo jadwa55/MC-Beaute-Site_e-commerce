@@ -1,10 +1,17 @@
 <?php
 
-use App\Http\Controllers\AllProductsController;
+
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\AllProductsController;
+use App\Http\Controllers\CardController;
 use App\Http\Controllers\ViewController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\AboutController;
+use App\Http\Controllers\OfferController;
+use App\Http\Controllers\CommandeController;
+
+// use App\Http\Controllers\CartController
 
 /*
 |--------------------------------------------------------------------------
@@ -29,4 +36,23 @@ Route::resource('projects', ProjectController::class);
 
 Route::resource('categorys', CategoryController::class);
 
-Route::get('/produits',[AllProductsController::class,'index'])->name('produits');
+Route::get('/produits/{order?}',[AllProductsController::class,'index'])->name('produits');
+
+
+
+Route::get('panier/{id}/{qty}',[CardController::class,'card'])->name('panier.card');
+
+Route::get('panier',[CardController::class,'index'])->name('panier');
+
+// Route::get('/', function(){
+//     return view('projects.view');
+// });
+
+Route::resource('abouts', AboutController::class);
+
+Route::resource('offers', OfferController::class);
+
+Route::post('commande',[CommandeController::class,'save'])->name('commande')->middleware('auth');
+
+// Route::get('commande',[CommandeController::class,'save'])->name('commande');
+

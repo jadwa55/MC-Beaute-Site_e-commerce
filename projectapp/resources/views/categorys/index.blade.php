@@ -22,22 +22,22 @@
                     <span>Dashboard</span></a>
                 </li>
                 <li><a href=""><span class="las la-users"></span>
-                    <span>Customers</span></a>
+                    <span>CLients</span></a>
                 </li>
-                <li><a href="{{ route('projects.index') }}"><span class="las la-clipboard-list"></span>
+                <li><a href="{{ route('projects.index') }}" class="active"><span class="las la-clipboard-list"></span>
                     <span>Products</span></a>
                 </li>
-                <li><a href="index.html" class="active"><span class="las la-clipboard-list"></span>
+                <li><a href="{{ route('categorys.index') }}"><span class="las la-clipboard-list"></span>
                     <span>Categories</span></a>
                 </li>
                 <li><a href=""><span class="las la-shopping-bag"></span>
-                    <span>Orders</span></a>
+                    <span>Commandes</span></a>
+                </li>
+                <li><a href=""><span class="las la-user-circle"></span>
+                    <span>Reviews</span></a>
                 </li>
                 <li><a href="{{ route('home') }}"><span class="las la-receipt"></span>
                     <span>Home page</span></a>
-                </li>
-                <li><a href=""><span class="las la-user-circle"></span>
-                    <span>Accounts</span></a>
                 </li>
                 <li><a href=""><span class="las la-clipboard-list"></span>
                     <span>Tasks</span></a>
@@ -55,10 +55,10 @@
                 </label>
                 Dashboard
             </h2>
-            <div class="search-wrapper">
+            {{-- <div class="search-wrapper">
                 <span class="las la-search"></span>
                 <input type="search" placeholder="Search here"/>
-            </div>
+            </div> --}}
             <div class="user-wrapper">
                 <img src="{{asset('img/2.jpg')}}" width="40px" height="40px" alt="">
                 <div>

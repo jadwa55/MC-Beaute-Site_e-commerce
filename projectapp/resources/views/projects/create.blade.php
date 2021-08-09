@@ -1,13 +1,24 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="row">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link rel="stylesheet" href="{{asset('css/crud.css')}}">
+</head>
+<body>
+    <div class="container">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
                 <h2>Add New Product</h2>
             </div>
             <div class="pull-right">
-                <a class="btn btn-primary" href="{{ route('projects.index') }}" title="Go back"> <i class="fas fa-backward "></i> </a>
+                <a class="btn" href="{{ route('projects.index') }}" title="Go back"> <i class="fas fa-backward "></i> </a>
             </div>
         </div>
     </div>
@@ -35,7 +46,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Introduction:</strong>
-                    <textarea class="form-control" style="height:50px" name="introduction"
+                    <textarea class="form-control" style="height:100px" name="introduction"
                         placeholder="Introduction"></textarea>
                 </div>
             </div>
@@ -64,9 +75,11 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn">Submit</button>
             </div>
         </div>
 
     </form>
+</body>
+</html>
 @endsection

@@ -6,14 +6,14 @@
     <!-- <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css"> -->
     <link rel="stylesheet" href="{{asset('css/view.css')}}">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-    <title>Document</title>
+    <title>MC-Beaute</title>
 </head>
 <body>
     <div class="header">
         <div class="container">
             <div class="navbar">
                 <div class="logo">
-                    <h1>MC-Beaute</h1>
+                    <img src=" {{ asset('img/LOGO.png') }}">
                 </div>
                 <nav>
                     <ul id="MenuItems">
@@ -21,40 +21,41 @@
                         <li><a href="{{ route('produits') }}">Product</a></li>
                         <li><a href="">About</a></li>
                         <li><a href="">Contact</a></li>
-                        <li><a href="account.html">Account</a></li>
+                        {{-- <li><a href="" class="btn">Log Out</a></li> --}}
+                        {{-- <li><a href=""{{ route('panier') }}"><img src="{{asset('img/cart.png')}}" width="30px" height="30px"></a>
+                        <li><img src="menu.png" class="menu-icon" onclick="menutoggle()"></li> --}}
                     </ul>
                 </nav>
-                <a href="cart.html"><img src="cart.png" width="30px" height="30px"></a>
+                <a href=""{{ route('panier') }}"><img src="{{asset('img/cart.png')}}" width="30px" height="30px"></a>
                 <img src="menu.png" class="menu-icon" onclick="menutoggle()">
             </div>
             <div class="row">
                 <div class="col-2">
                     <h2>La nature fait bien les choses,<br>laissez-là s'occuper de votre beauté!</h2>
-                    <a href="" class="btn">Explore now  &#8594;</a>
+                    <a href="{{ route('produits') }}" class="btn">Our Products  &#8594;</a>
                 </div>
-                <div class="col-2">
-                    <!-- <img src="new.png" width="55%" height="55%"> -->
-                </div>
+                {{-- <div class="col-2"> --}}
+                    {{-- <img src="new.png" width="55%" height="55%"> --}}
+                {{-- </div> --}}
             </div>
         </div>
     </div>
-    <!-- --------------------------- featured categories-------------- -->
-    {{-- <div class="categories">
-        <div class="small-container">
-            <div class="row">
-                <div class="col-3">
-                    <img src="{{asset('img/5.jpg')}}">
-                </div>
-                <div class="col-3">
-                    <img src="{{asset('img/5.jpg')}}">
-                </div>
-                <div class="col-3">
-                    <img src="{{asset('img/5.jpg')}}">
+    <section class="about" id="about">
+        @foreach ($abouts as $abt)
+        <div class="row">
+            {{-- @foreach ($abouts as $abt) --}}
+            <div class="col50">
+                <h2 class="titleText"><span>A</span>bout Us</h2>
+                <p>{{ $abt->caption }}</p>
+            </div>
+            <div class="col50">
+                <div class="imgBx">
+                    <img src="{{ $abt->image }}">
                 </div>
             </div>
         </div>
-    </div> --}}
-
+        @endforeach
+    </section>
     <!-- -----------------------featured products --------------------------- -->
     <div class="small-container">
         <h2 class="title">Our Categories</h2>
@@ -74,126 +75,47 @@
 
         <h2 class="title">Latest Products</h2>
         <div class="row">
-            @foreach ($projects as $project)
-            <div class="col-4">
-                <img src="{{ $project->image }}">
-                <h4>{{ $project->name }}</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
+        @foreach ($projects as $project)
+            <div class="cartes_shop col-lg-3 col-sm-6 ">
+                <div class="content_shop">
+                    <div class="content-overlay"></div>
+                    <img class="content-image" src="{{ $project->image }}">
+                    <div class="content-details fadeIn-bottom">
+                    <a class="m-2" href="#">
+                        <i class="fas fa-heart fa-2x"></i>
+                    </a>
+                    <a class="m-2" href="{{ route('panier.card',['id' => $project->id,'qty' => 1]) }}">
+                        <i class="fas fa-shopping-cart fa-2x"></i>
+                    </a>
+                    <a class="m-2" href="#">
+                        <i class="fas fa-eye fa-2x"></i>
+                    </a>
+                    </div>
                 </div>
-                <p>{{ $project->cost }}</p>
+                <h4 class="title-pro">{{ $project->name }}<br> {{ $project->cost }} DH</h4>
             </div>
-            @endforeach
-            {{-- <div class="col-4">
-                <img src="2.jpg">
-                <h4>Title</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>$50.00</p>
-            </div>
-            <div class="col-4">
-                <img src="2.jpg">
-                <h4>Title</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>$50.00</p>
-            </div>
-            <div class="col-4">
-                <img src="2.jpg">
-                <h4>Title</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>$50.00</p>
-            </div> --}}
+        @endforeach
         </div>
-        {{-- <div class="row">
-            <div class="col-4">
-                <img src="2.jpg">
-                <h4>Title</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>$50.00</p>
-            </div>
-            <div class="col-4">
-                <img src="2.jpg">
-                <h4>Title</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>$50.00</p>
-            </div>
-            <div class="col-4">
-                <img src="2.jpg">
-                <h4>Title</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>$50.00</p>
-            </div>
-            <div class="col-4">
-                <img src="2.jpg">
-                <h4>Title</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-half-o"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>$50.00</p>
-            </div>
-        </div> --}}
     </div>
     <!-- -----------------------------------offer-------------------------- -->
-    <div class="offer">
+    {{-- <div class="offer">
         <div class="small-container">
             <div class="row">
+                @foreach ($offers as $ofr)
                 <div class="col-2">
-                    <img src="test.png" class="offer-img">
+                    <img src="{{ $ofr->image }}" class="offer-img">
                 </div>
+
                 <div class="col-2">
-                    <p>Offre</p>
-                    <h2>Pack title</h2>
-                    <small>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                    Ut enim ad minim veniam</small>
+                    <p>{{ $ofr->offer }}</p>
+                    <h2>{{ $ofr->pack }}</h2>
+                    <small>{{ $ofr->caption }}</small>
                     <a href="" class="btn">Buy Now &#8594;</a>
                 </div>
+                @endforeach
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <!-- --------------------------------testimonial--------------------------------------------- -->
     <div class="testimonial">
@@ -256,11 +178,11 @@
                     <h3>mc-beaute</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
                     <div class="app-logo">
-                        <img src="GGL.png">
+                        <img src="{{asset('img/GGL.png')}}">
                     </div>
                 </div>
                 <div class="footer-col-2">
-                    <img src="bg.jpg">
+                    <img src="{{ asset('img/LOGO.png') }}">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     Ut enim ad minim veniam</p>
@@ -280,7 +202,6 @@
                         <li>Facebook</li>
                         <li>Twitter</li>
                         <li>Instgram</li>
-                        <li>Youtube</li>
                     </ul>
                 </div>
             </div>

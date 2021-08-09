@@ -43,38 +43,26 @@
 
         <div class="row">
             @foreach ($projects as $project)
-            <div class="col-4">
-                <img src="{{ $project->image }}">
-                <h4>{{ $project->name }}</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
+            <div class="cartes_shop col-lg-3 col-sm-6 ">
+                <div class="content_shop">
+                    <div class="content-overlay"></div>
+                    <img class="content-image" src="{{ asset($project->image) }}">
+                    <div class="content-details fadeIn-bottom">
+                    <a class="m-2" href="#">
+                        <i class="fas fa-heart fa-2x"></i>
+                    </a>
+                    <a class="m-2" href="{{ route('panier.card',['id' => $project->id,'qty' => 1]) }}">
+                        <i class="fas fa-shopping-cart fa-2x"></i>
+                    </a>
+                    <a class="m-2" href="#">
+                        <i class="fas fa-eye fa-2x"></i>
+                    </a>
+                    </div>
                 </div>
-                <p>{{ $project->cost }}</p>
+                <h4 class="title-pro">{{ $project->name }}<br> {{ $project->cost }} DH</h4>
             </div>
             @endforeach
         </div>
-        <div class="row">
-            @foreach ($projects as $project)
-            <div class="col-4">
-                <img src="{{ $project->image }}">
-                <h4>{{ $project->name }}</h4>
-                <div class="rating">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star-o"></i>
-                </div>
-                <p>{{ $project->cost }}</p>
-            </div>
-            @endforeach
-        </div>
-
-
         <div class="page-btn">
             <span>1</span>
             <span>2</span>
