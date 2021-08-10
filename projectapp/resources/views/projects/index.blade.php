@@ -13,14 +13,14 @@
     <input type="checkbox" id="nav-toggle">
     <div class="sidebar">
         <div class="sidbar-brand">
-            <h2><span class="lab la-accusoft"></span><span>JADWA</span></h2>
+            <h2><img src=" {{ asset('img/LOGO.png') }}"></h2>
         </div>
 
         <div class="sidebar-menu">
             <ul>
-                <li><a href="" ><span class="las la-igloo"></span>
+                {{-- <li><a href="" ><span class="las la-igloo"></span>
                     <span>Dashboard</span></a>
-                </li>
+                </li> --}}
                 <li><a href=""><span class="las la-users"></span>
                     <span>CLients</span></a>
                 </li>
@@ -39,7 +39,7 @@
                 <li><a href="{{ route('abouts.index') }}"><span class="las la-user-circle"></span>
                     <span>About</span></a>
                 </li>
-                <li><a href=""><span class="las la-user-circle"></span>
+                <li><a href="{{route('offers.index')}}"><span class="las la-user-circle"></span>
                     <span>Offers</span></a>
                 </li>
                 <li><a href="{{ route('home') }}"><span class="las la-receipt"></span>

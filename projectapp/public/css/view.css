@@ -12,8 +12,6 @@ body {
     align-items: center;
     padding: 20px;
 }
-
-
 nav {
     flex: 1;
     text-align: right;
@@ -62,7 +60,7 @@ p {
 }
 .btn {
     display: inline-block;
-    background: #ff523b;
+    background: #F29898;
     color: #fff;
     padding: 8px 30px;
     margin: 30px 0;
@@ -78,7 +76,7 @@ p {
     background: url(/img/newbg.jpg);
     position: relative;
     width: 100%;
-    min-height: 90vh;
+    min-height: 100vh;
     /* display: flex; */
     /* justify-content: center; */
     /* align-items: center; */
@@ -100,6 +98,11 @@ p {
 }
 .col-3 img{
     width: 100%;
+    text-align: center;
+    /* padding: 40px 20px; */
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 1);
+    /* cursor: pointer; */
+    transition: transform 0.5s;
 }
 .small-container{
     max-width: 1080px;
@@ -128,8 +131,8 @@ p {
 }
 .title::after{
     content: '';
-    background: #ff523b;
-    width: 80px;
+    background: #F29898;
+    width: 168px;
     height: 5px;
     border-radius: 5px;
     position: absolute;
@@ -145,7 +148,7 @@ h4{
     font-size: 14px;
 }
 .rating .fa{
-    color:#ff523b;
+    color:#F29898;
 }
 .col-4:hover{
     transform: translateY(-5px);
@@ -155,27 +158,47 @@ h4{
 
 .offer{
     background: radial-gradient(#fff,#ffd6d6);
-    margin-top: 80px;
+    /* margin-top: 80px; */
     padding: 30px 0;
+    margin: 10%;
 }
-.col-2 .offer-img{
-    padding: 50px;
+
+.OFFRE{
+    flex-basis: 50%;
+    min-width: 300px;
+    /* margin: 3%; */
+}
+
+.OFFRE img{
+    max-width: 100%;
+    padding: 10px ;
+    /* margin-left: 25%; */
 }
 small{
     color: #555;
 }
 
+.offer-container{
+    max-width: 1080px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+    /* margin-top: 10%; */
+}
+
+
 /* ----------------------------testimonial------------------------------ */
 
-.testimonial{
+/* .testimonial{
     padding-top: 100px;
-}
+} */
 .testimonial .col-3{
     text-align: center;
     padding: 40px 20px;
     box-shadow: 0 0 20px 0px rgba(0, 0, 0, 1);
     cursor: pointer;
     transition: transform 0.5s;
+    border-radius: 13px;
 }
 .testimonial .col-3 img{
     width: 50px;
@@ -187,7 +210,7 @@ small{
 }
 .fa.fa-quote-left{
     font-size: 34px;
-    color: #ff523b;
+    color: #F29898;
 }
 .col-3 p{
     font-size: 12px;
@@ -212,7 +235,7 @@ small{
     color: #8a8a8a;
 }
 .footer h3{
-    color: #fff;
+    color: #DDB892;
     margin-bottom: 20px;
 }
 .footer-col-1, .footer-col-2, .footer-col-3, .footer-col-4{
@@ -306,7 +329,33 @@ select:focus{
     background: #ff523b;
     color: #fff;
 } */
+.all{
 
+    background:#DDB892 ;
+    position: relative;
+    width: 100%;
+    min-height: 5vh;
+    background-size: cover;
+    max-width: 1300px;
+    margin: auto;
+    padding-left: 25px;
+    /* padding-top: 25px; */
+    /* margin-right: 25px; */
+}
+.all_container{
+    max-width: 1080px;
+    margin: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+    margin-top: 2%;
+}
+
+
+.select{
+    MARGIN-BOTTOM: 4%;
+    MARGIN-TOP: -4%;
+    MARGIN-LEFT: 85%;
+}
 /* ---------------------------single product details ------------------------------  */
 .row-pro {
     display: flex;
@@ -343,13 +392,13 @@ select:focus{
     padding-left: 10px;
     font-size: 20px;
     margin-right: 10px;
-    border: 1px solid #ff523b;
+    border: 1px solid #F29898;
 }
 input:focus{
     outline: none;
 }
 .single-product .fa{
-    color: #ff523b;
+    color: #F29898;
     margin-left: 10px;
 }
 .small-img-row{
@@ -378,7 +427,7 @@ th{
     text-align: left;
     padding: 5px;
     color: #fff;
-    background: #ff523b;
+    background: #F29898;
     font-weight: normal;
 }
 
@@ -392,7 +441,7 @@ td input {
 }
 
 td a {
-    color: #ff523b;
+    color: #F29898;
     font-size: 12px;
 }
 td img {
@@ -405,7 +454,7 @@ td img {
     justify-content: flex-end;
 }
 .total-price table{
-    border-top: 3px solid #ff523b;
+    border-top: 3px solid #F29898;
     width: 100%;
     max-width: 400px;
 }
@@ -480,7 +529,7 @@ form a {
 #Indicator{
     width: 100px;
     border: none;
-    background: #ff523b;
+    background: #F29898;
     height: 3px;
     margin-top: 8px;
     transform: translateX(100px);
@@ -519,7 +568,7 @@ form a {
     font-size: 12px;
 }
 .newbook-carousel .control hr {
-    border-bottom: 2px solid red;
+    border-bottom: 2px solid #F29898;
 }
 .cartes_shop {
     padding: 0 0 0 1em;
@@ -550,7 +599,7 @@ form a {
     transition: all 0.4s ease-in-out 0s;
 }
 .cartes_shop .bg-red-color {
-    background-color: red;
+    background-color: #F29898;
     border-radius: 7%;
 }
 .content-image {
@@ -569,7 +618,7 @@ form a {
     transition: all 0.3s ease-in-out 0s;
 }
 .content-details a {
-    color: red;
+    color: #F29898;
 }
 .content_shop:hover .content-details {
     top: 50%;
@@ -597,6 +646,9 @@ form a {
 section
 {
     padding: 100px;
+    /* background: radial-gradient(#fff,#ffd6d6); */
+    /* padding: 30px 0; */
+    /* margin: 10%; */
 }
 .row
 {

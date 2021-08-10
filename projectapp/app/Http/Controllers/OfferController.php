@@ -14,7 +14,7 @@ class OfferController extends Controller
      */
     public function index()
     {
-        $offers = Offer::latest()->paginate(1);
+        $offers = Offer::all();
         return view('offers.index', [
             'offers' => $offers
         ]);

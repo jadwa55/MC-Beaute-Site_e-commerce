@@ -15,6 +15,7 @@
         <div class="navbar">
             <div class="logo">
                 {{-- <h1>MC-Beaute</h1> --}}
+                <img src=" {{ asset('img/LOGO.png') }}">
             </div>
             <nav>
                 <ul id="MenuItems">

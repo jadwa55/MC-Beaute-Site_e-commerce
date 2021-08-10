@@ -15,10 +15,10 @@
     <div class="container">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
-                <h2>Add New Product</h2>
+                <h2>Add New Offer</h2>
             </div>
             <div class="pull-right">
-                <a class="btn" href="{{ route('projects.index') }}" title="Go back"> <i class="fas fa-backward "></i> </a>
+                <a class="btn" href="{{ route('offers.index') }}" title="Go back"> <i class="fas fa-backward "></i> </a>
             </div>
         </div>
     </div>
@@ -33,32 +33,20 @@
             </ul>
         </div>
     @endif
-    <form action="{{ route('projects.store') }}" method="POST" >
+    <form action="{{ route('offers.store') }}" method="POST" >
         @csrf
 
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Name:</strong>
-                    <input type="text" name="name" class="form-control" placeholder="Name">
+                    <strong>Offer:</strong>
+                    <input type="number" name="offer" class="form-control" placeholder="offer">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Introduction:</strong>
-                    <textarea class="form-control" style="height:100px" name="introduction"
-                        placeholder="Introduction"></textarea>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>categories:</strong>
-                    <select name="category_id" id="">
-                        @foreach ($categorys as $item)
-                        <option value="{!! $item->id !!}">{!! $item->name !!}</option>
-                        @endforeach
-                    </select>
-                    {{-- <input type="text" name="categories" class="form-control" placeholder="Categories"> --}}
+                    <strong>Pack:</strong>
+                    <input type="text" name="pack" class="form-control" placeholder="Name">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -69,14 +57,9 @@
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
-                    <strong>Quantite:</strong>
-                    <input type="number" name="quantite" class="form-control" placeholder="Quantite">
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-12 col-md-12">
-                <div class="form-group">
-                    <strong>Price:</strong>
-                    <input type="text" name="cost" class="form-control" placeholder="Cost">
+                    <strong>Caption:</strong>
+                    <textarea class="form-control" style="height:100px" name="caption"
+                        placeholder="Introduction"></textarea>
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">

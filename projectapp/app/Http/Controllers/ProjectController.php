@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Project;
 use Illuminate\Http\Request;
 
@@ -29,7 +30,7 @@ class ProjectController extends Controller
     public function create()
     {
         // return 'bidoni jadwa';
-        return view('projects.create');
+        return view('projects.create')->with('categorys',Category::all());
     }
 
     /**

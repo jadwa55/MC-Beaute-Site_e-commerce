@@ -9,7 +9,7 @@ class Offer extends Model
 {
     use HasFactory;
 
-    protected $table = 'abouts';
+    protected $table = 'offers';
 
     protected $casts = [
         'created_at' => 'datetime',

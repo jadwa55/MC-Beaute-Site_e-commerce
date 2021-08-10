@@ -27,7 +27,7 @@
                     </ul>
                 </nav>
                 <a href=""{{ route('panier') }}"><img src="{{asset('img/cart.png')}}" width="30px" height="30px"></a>
-                <img src="menu.png" class="menu-icon" onclick="menutoggle()">
+                <img src="{{asset('img/menu.png')}}" class="menu-icon" onclick="menutoggle()">
             </div>
             <div class="row">
                 <div class="col-2">
@@ -40,10 +40,9 @@
             </div>
         </div>
     </div>
-    <section class="about" id="about">
+    {{-- <section class="about" id="about">
         @foreach ($abouts as $abt)
         <div class="row">
-            {{-- @foreach ($abouts as $abt) --}}
             <div class="col50">
                 <h2 class="titleText"><span>A</span>bout Us</h2>
                 <p>{{ $abt->caption }}</p>
@@ -55,8 +54,31 @@
             </div>
         </div>
         @endforeach
-    </section>
-    <!-- -----------------------featured products --------------------------- -->
+    </section> --}}
+
+
+    <div class="offer">
+        <div class="offer-container">
+            <div class="row">
+                @foreach ($abouts as $abt)
+                <div class="OFFRE">
+                    <h2 class="titleText"><span>A</span>bout Us</h2>
+                    <p>{{ $abt->caption }}</p>
+                </div>
+
+                <div class="OFFRE">
+                    <img src="{{ $abt->image }}">
+                    {{-- <h2>{{ $ofr->pack }}</h2> --}}
+                    {{-- <small>{{ $ofr->caption }}</small> --}}
+                {{-- </br> --}}
+                    {{-- <a href="" class="btn">Buy Now &#8594;</a> --}}
+                </div>
+                @endforeach
+            </div>
+        </div>
+    </div>
+
+    <!-- -----------------------Categories--------------------------- -->
     <div class="small-container">
         <h2 class="title">Our Categories</h2>
         <div class="categories">
@@ -64,8 +86,11 @@
                 <div class="row">
                     @foreach ($categorys as $category)
                     <div class="col-3">
-                        <img src="{{ $category->image }}">
-                        {{-- <h4>{{ $category->name }}</h4> --}}
+                        <div class="content_shop">
+                            <div class="content-overlay"></div>
+                            <img class="content-image" src="{{ $category->image }}">
+                        </div>
+                        <h4 class="title-pro">{{ $category->name }}</h4>
                     </div>
                     @endforeach
                 </div>
@@ -98,24 +123,25 @@
         </div>
     </div>
     <!-- -----------------------------------offer-------------------------- -->
-    {{-- <div class="offer">
-        <div class="small-container">
+    <div class="offer">
+        <div class="offer-container">
             <div class="row">
                 @foreach ($offers as $ofr)
-                <div class="col-2">
+                <div class="OFFRE">
                     <img src="{{ $ofr->image }}" class="offer-img">
                 </div>
 
-                <div class="col-2">
-                    <p>{{ $ofr->offer }}</p>
+                <div class="OFFRE">
+                    {{-- <p>{{ $ofr->offer }} %</p> --}}
                     <h2>{{ $ofr->pack }}</h2>
                     <small>{{ $ofr->caption }}</small>
+                </br>
                     <a href="" class="btn">Buy Now &#8594;</a>
                 </div>
                 @endforeach
             </div>
         </div>
-    </div> --}}
+    </div>
 
     <!-- --------------------------------testimonial--------------------------------------------- -->
     <div class="testimonial">
@@ -133,7 +159,7 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-o"></i>
                     </div>
-                    <img src="3.jpg">
+                    <img src="{{ asset('img/2.jpg') }}"">
                     <h3>Hermez</h3>
                 </div>
                 <div class="col-3">
@@ -148,7 +174,7 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-o"></i>
                     </div>
-                    <img src="3.jpg">
+                    <img src="{{ asset('img/2.jpg') }}">
                     <h3>Hermez</h3>
                 </div>
                 <div class="col-3">
@@ -163,7 +189,7 @@
                         <i class="fa fa-star"></i>
                         <i class="fa fa-star-o"></i>
                     </div>
-                    <img src="3.jpg">
+                    <img src="{{ asset('img/2.jpg') }}">
                     <h3>Hermez</h3>
                 </div>
             </div>
@@ -182,7 +208,7 @@
                     </div>
                 </div>
                 <div class="footer-col-2">
-                    <img src="{{ asset('img/LOGO.png') }}">
+                    <img src="{{ asset('img/logo-bL.png') }}">
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
                     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                     Ut enim ad minim veniam</p>
