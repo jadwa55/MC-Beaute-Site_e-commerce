@@ -85,7 +85,7 @@
 
 
 <!-- ------------------------------------------footer------------------------------- -->
-    <div class="footer">
+    {{-- <div class="footer">
         <div class="container">
             <div class="row">
                 <div class="footer-col-1">
@@ -122,7 +122,7 @@
             </div>
             <hr>
         </div>
-    </div>
+    </div> --}}
 
     <!-- ----------------------------- js for toggle menu -----------------------  -->
     <script>
