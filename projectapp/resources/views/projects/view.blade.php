@@ -20,13 +20,39 @@
                         <li><a href="{{ route('home') }}">Home</a></li>
                         <li><a href="{{ route('produits') }}">Product</a></li>
                         <li><a href="">About</a></li>
-                        <li><a href="">Contact</a></li>
+                        <li>
+                            @auth
+
+                            <a class="dropdown-item" href="#.">
+                                <form method="post" action="{{route('logout')}}"  onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                                  @csrf
+                                  <i class="mr-50" data-feather="power"></i> Logout
+                                </form>
+                              </a>
+                              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                  @csrf
+                              </form>
+                            @endauth
+
+                            @guest
+                            <a href="{{ route('login') }}">Login/Register</a>
+                            @endguest
+                        </li>
+
+
+
+
+
+
+
+
                         {{-- <li><a href="" class="btn">Log Out</a></li> --}}
                         {{-- <li><a href=""{{ route('panier') }}"><img src="{{asset('img/cart.png')}}" width="30px" height="30px"></a>
                         <li><img src="menu.png" class="menu-icon" onclick="menutoggle()"></li> --}}
                     </ul>
                 </nav>
-                <a href=""{{ route('panier') }}"><img src="{{asset('img/cart.png')}}" width="30px" height="30px"></a>
+                <a href="{{ route('panier') }}"><img src="{{asset('img/cart.png')}}" width="30px" height="30px"></a>
                 <img src="{{asset('img/menu.png')}}" class="menu-icon" onclick="menutoggle()">
             </div>
             <div class="row">
@@ -132,7 +158,7 @@
                 </div>
 
                 <div class="OFFRE">
-                    {{-- <p>{{ $ofr->offer }} %</p> --}}
+                    <p>{{ $ofr->offre }} DH</p>
                     <h2>{{ $ofr->pack }}</h2>
                     <small>{{ $ofr->caption }}</small>
                 </br>

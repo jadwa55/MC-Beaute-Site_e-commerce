@@ -24,30 +24,30 @@
                 <li><a href=""><span class="las la-users"></span>
                     <span>CLients</span></a>
                 </li>
-                <li><a href="{{ route('projects.index') }}" ><span class="las la-clipboard-list"></span>
+                <li><a href="{{ route('projects.index') }}"><span class="las la-clipboard-list"></span>
                     <span>Products</span></a>
                 </li>
-                <li><a href="{{ route('categorys.index') }}"class="active"><span class="las la-clipboard-list"></span>
+                <li><a href="{{ route('categorys.index') }}"><span class="las la-clipboard-list"></span>
                     <span>Categories</span></a>
                 </li>
-                {{-- <li><a href=""><span class="las la-shopping-bag"></span>
-                    <span>Commandes</span></a>
+                <li><a href="{{ route('Orders.index') }}" class="active"><span class="las la-shopping-bag"></span>
+                    <span>Orders</span></a>
                 </li>
                 <li><a href=""><span class="las la-user-circle"></span>
                     <span>Reviews</span></a>
-                </li> --}}
+                </li>
                 <li><a href="{{ route('abouts.index') }}"><span class="las la-user-circle"></span>
                     <span>About</span></a>
                 </li>
-                {{-- <li><a href="{{ route('offres.index') }}"><span class="las la-user-circle"></span>
+                <li><a href="{{ route('offers.index') }}" ><span class="las la-user-circle"></span>
                     <span>Offers</span></a>
-                </li> --}}
+                </li>
                 <li><a href="{{ route('home') }}"><span class="las la-receipt"></span>
                     <span>Home page</span></a>
                 </li>
-                {{-- <li><a href=""><span class="las la-clipboard-list"></span>
+                <li><a href=""><span class="las la-clipboard-list"></span>
                     <span>Tasks</span></a>
-                </li> --}}
+                </li>
             </ul>
 
         </div>
@@ -79,10 +79,10 @@
                 <div class="project" style="margin-top: 30px">
                     <div class="card">
                         <div class="card-header">
-                            <h2>Recent categories</h2>
+                            <h2>All Orders</h2>
 
-                            <button><a class="btn btn-success" href="{{ route('categorys.create') }}" title="Create a category"> <i class="fas fa-plus-circle"></i>
-                            </span>Add new category</a></button>
+                            <button><a class="btn btn-success" href="{{ route('offers.create') }}" title="Create a project"> <i class="fas fa-plus-circle"></i>
+                            </span>Add new product</a></button>
                         </div>
 
 
@@ -98,27 +98,25 @@
                                     <thead>
                                         <tr>
                                             <td>ID</td>
-                                            <td>categorie name</td>
-                                            <td>Image</td>
-                                            <td>Date Created</td>
-                                            <td width="280px">Action</td>
+                                            <td>Address</td>
+                                            <td>User_id</td>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($categorys as $category)
+                                        @foreach ($commandes as $cmd)
                                         <tr>
-                                            <td>{{ $category->id}}</td>
-                                            <td>{{ $category->name}}</td>
-                                            <td>{{ $category->image }}</td>
-                                            <td>{{ date_format($category->created_at, 'jS M Y') }}</td>
+                                            <td>{{ $cmd->id}}</td>
+                                            <td>{{ $cmd->address}}</td>
+                                            <td>{{ $cmd->user_id}}</td>
+                                            <td>{{ $ofr->created_at, 'jS M Y' }}</td>
                                             <td>
-                                                <form action="{{ route('categorys.destroy', $category->id) }}" method="POST">
+                                                <form action="{{ route('offers.destroy', $cmd->id) }}" method="POST">
 
-                                                    <a href="{{ route('categorys.show', $category->id) }}" title="show">
+                                                    <a href="{{ route('offers.show', $cmd->id) }}" title="show">
                                                         <i class="fas fa-eye text-success  fa-lg"></i>
                                                     </a>
 
-                                                    <a href="{{ route('categorys.edit', $category->id) }}">
+                                                    <a href="{{ route('offers.edit', $cmd->id) }}">
                                                         <i class="fas fa-edit  fa-lg"></i>
 
                                                     </a>
@@ -133,12 +131,13 @@
                                                 </form>
                                             </td>
                                         </tr>
-                                    @endforeach
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
                         </div>
                     </div>
+
             </div>
 
         </main>

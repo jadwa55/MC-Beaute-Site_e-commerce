@@ -10,7 +10,7 @@ use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\AboutController;
 use App\Http\Controllers\OfferController;
 use App\Http\Controllers\CommandeController;
-
+use App\Http\Controllers\CommandeClientController;
 // use App\Http\Controllers\CartController
 
 /*
@@ -56,3 +56,8 @@ Route::post('commande',[CommandeController::class,'save'])->name('commande')->mi
 
 // Route::get('commande',[CommandeController::class,'save'])->name('commande');
 
+
+Route::get('is_login',[ViewController::class,'isLogin'])->name('is_login')->middleware('auth');
+
+
+// Route::resource('Orders', CommandeClientController::class);

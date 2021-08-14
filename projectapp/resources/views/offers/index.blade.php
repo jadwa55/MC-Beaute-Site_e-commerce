@@ -30,12 +30,12 @@
                 <li><a href="{{ route('categorys.index') }}"><span class="las la-clipboard-list"></span>
                     <span>Categories</span></a>
                 </li>
-                <li><a href=""><span class="las la-shopping-bag"></span>
+                {{-- <li><a href=""><span class="las la-shopping-bag"></span>
                     <span>Commandes</span></a>
                 </li>
                 <li><a href=""><span class="las la-user-circle"></span>
                     <span>Reviews</span></a>
-                </li>
+                </li> --}}
                 <li><a href="{{ route('abouts.index') }}"><span class="las la-user-circle"></span>
                     <span>About</span></a>
                 </li>
@@ -45,9 +45,9 @@
                 <li><a href="{{ route('home') }}"><span class="las la-receipt"></span>
                     <span>Home page</span></a>
                 </li>
-                <li><a href=""><span class="las la-clipboard-list"></span>
+                {{-- <li><a href=""><span class="las la-clipboard-list"></span>
                     <span>Tasks</span></a>
-                </li>
+                </li> --}}
             </ul>
 
         </div>

@@ -100,7 +100,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="btn row mb-0">
+                                    {{-- <div class="btn row mb-0"> --}}
                                         <div class="col-md-8 offset-md-4">
                                             <button type="submit" class="btn btn-primary">
                                                 {{ __('Login') }}
@@ -112,7 +112,11 @@
                                                 </a>
                                             @endif
                                         </div>
-                                    </div>
+                                        <div>
+                                            <a href="{{ route('register') }}"  class="btn btn-primary" style="margin-top: 1%">
+                                                {{ __('Register Now ') }}
+                                            </a>
+                                        </div>
                                 </form>
                             </div>
                         </div>

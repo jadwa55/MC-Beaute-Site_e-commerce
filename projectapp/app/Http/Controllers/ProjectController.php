@@ -45,7 +45,7 @@ class ProjectController extends Controller
         $request->validate([
             'name' => 'required',
             'introduction' => 'required',
-            'categories' => 'required',
+            'category_id' => 'required',
             'image' => 'required',
             'quantite' => 'required',
             'cost' => 'required'
@@ -98,7 +98,8 @@ class ProjectController extends Controller
         $project->update($request->all());
 
         return redirect()->route('projects.index')
-            ->with('success', 'Project updated successfully');
+            // ->with('success', 'Project updated successfully');
+            ->with('success');
     }
     /**
      * Remove the specified resource from storage.

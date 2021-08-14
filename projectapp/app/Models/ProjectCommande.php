@@ -15,7 +15,7 @@ class ProjectCommande extends Model
 
     protected $fillable = [
         'quantite',
-        'commande-id',
+        'commande_id',
         'project_id'
     ];
 }

@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Offer;
 use App\Models\About;
 use App\Models\View;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
 class ViewController extends Controller
@@ -104,5 +105,18 @@ class ViewController extends Controller
     public function destroy(View $view)
     {
         //
+    }
+
+    public function isLogin(){
+
+        // ===check valeur nd type
+        // == check only valeur
+
+        if(Auth::user()->is_login===1){
+            return redirect(route('projects.index'));
+        }
+
+        return redirect(route('home'));
+
     }
 }

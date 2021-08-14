@@ -44,13 +44,18 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Image:</strong>
-                    <input type="text" name="image" class="form-control" placeholder="{{ $project->image }}"
+                    <input type="file" name="image" class="form-control" placeholder="{{ $project->image }}"
                         value="{{ $project->image }}">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Categorie:</strong>
+                    {{-- <select name="category_id" id="">
+                        @foreach ($categorys as $item)
+                        <option value="{!! $item->id !!}">{!! $item->name !!}</option>
+                        @endforeach
+                    </select> --}}
                     <input type="text" name="categories" class="form-control" placeholder="{{ $project->categories }}"
                         value="{{ $project->categories }}">
                 </div>
@@ -58,7 +63,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Quantite:</strong>
-                    <input type="text" name="quantite" class="form-control" placeholder="{{ $project->quantite }}"
+                    <input type="number" name="quantite" class="form-control" placeholder="{{ $project->quantite }}"
                         value="{{ $project->quantite }}">
                 </div>
             </div>
@@ -70,12 +75,15 @@
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button onclick="myFunction()" type="submit" class="btn btn-primary">Submit</button>
             </div>
         </div>
 
     </form>
 @endsection
 
-
-
+<script>
+    function myFunction(){
+        alert("Product updated successfully");
+    }
+</script>
