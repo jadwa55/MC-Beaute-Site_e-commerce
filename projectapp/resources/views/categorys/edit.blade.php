@@ -23,7 +23,7 @@
         </div>
     @endif
 
-    <form action="{{ route('categorys.update', $category->id) }}" method="POST">
+    <form action="{{ route('categorys.update', $category->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -31,14 +31,14 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Categorie Name:</strong>
-                   <input type="text" name="categories" class="form-control" placeholder="{{ $category->name}}"
+                   <input type="text" name="name" class="form-control" placeholder="{{ $category->name}}"
                         value="{{ $category->name }}">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Image:</strong>
-                    <input type="file" name="image" class="form-control" placeholder="{{ $category->image }}"
+                    <input type="file" name="image" class="form-control" placeholder="image"
                         value="{{ $category->image }}">
                 </div>
             </div>

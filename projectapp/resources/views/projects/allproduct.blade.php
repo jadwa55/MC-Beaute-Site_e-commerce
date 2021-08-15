@@ -49,7 +49,7 @@
 
     <div class="all_container">
         <h2 class="title">All Products</h2>
-        <div class="select">
+        {{-- <div class="select">
             <select>
                 <option>Default Shorting</option>
                 <option>Short by price</option>
@@ -57,14 +57,14 @@
                 <option>Short by rating</option>
                 <option>Short by sale</option>
             </select>
-        </div>
+        </div> --}}
 
         <div class="row">
             @foreach ($projects as $project)
             <div class="cartes_shop col-lg-3 col-sm-6 ">
                 <div class="content_shop">
                     <div class="content-overlay"></div>
-                    <img class="content-image" src="{{ asset('img/'.$project->image)}}">
+                    <img class="content-image" src="{{ asset($project->image)}}">
                     <div class="content-details fadeIn-bottom">
                     <a class="m-2" href="#">
                         <i class="fas fa-heart fa-2x"></i>

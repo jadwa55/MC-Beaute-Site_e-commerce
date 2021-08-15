@@ -33,14 +33,14 @@
             </ul>
         </div>
     @endif
-    <form action="{{ route('projects.store') }}" method="POST" >
+    <form action="{{ route('abouts.store') }}" method="POST" enctype="multipart/form-data" >
         @csrf
 
         <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Image:</strong>
-                    <input type="text" name="image" class="form-control" placeholder="Image">
+                    <input type="file" name="image" class="form-control" placeholder="Image">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+// use Dotenv\Util\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
@@ -48,9 +50,23 @@ class CategoryController extends Controller
             'image' => 'required'
         ]);
 
-        Category::create($request->all());
 
-        return redirect()->route('categorys.index')
+            if ($request->has('image')) {
+                // Get image file
+                $image = $request->file('image');
+                // Make a image name based on user name and current timestamp
+                $name = Str::slug($request->input('name')).'_'.time();
+                $folder = 'img/upload';
+
+                $img=$image->move($folder,$name.'.'.$image->getClientOriginalExtension());
+            }
+
+            Category::create([
+                'name' => $request->name,
+                'image' => $img,
+            ]);
+
+            return redirect()->route('categorys.index')
             ->with('success', 'category created successfully.');
     }
 
@@ -90,7 +106,21 @@ class CategoryController extends Controller
             'name' => 'required',
             'image' => 'required'
         ]);
-        $category->update($request->all());
+
+        if ($request->has('image')) {
+            // Get image file
+            $image = $request->file('image');
+            // Make a image name based on user name and current timestamp
+            $name = Str::slug($request->input('name')).'_'.time();
+            $folder = 'img/upload';
+
+            $img=$image->move($folder,$name.'.'.$image->getClientOriginalExtension());
+        }
+
+        $category->update([
+            'name' => $request->name,
+            'image' => $img,
+        ]);
 
         return redirect()->route('categorys.index')
             ->with('success', 'category updated successfully');

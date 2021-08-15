@@ -82,7 +82,7 @@
                 </div>
 
                 <div class="OFFRE">
-                    <img src="{{ $abt->image }}">
+                    <img src="{{ asset($abt->image)}}">
                     {{-- <h2>{{ $ofr->pack }}</h2> --}}
                     {{-- <small>{{ $ofr->caption }}</small> --}}
                 {{-- </br> --}}
@@ -103,7 +103,7 @@
                     <div class="col-3">
                         <div class="content_shop">
                             <div class="content-overlay"></div>
-                            <img class="content-image" src="{{ asset('img/'.$category->image)}}">
+                            <img class="content-image" src="{{ asset($category->image)}}">
                         </div>
                         <h4 class="title-pro">{{ $category->name }}</h4>
                     </div>
@@ -138,7 +138,7 @@
         </div>
     </div>
     <!-- -----------------------------------offer-------------------------- -->
-    <div class="offer">
+    {{-- <div class="offer">
         <div class="offer-container">
             <div class="row">
                 @foreach ($offers as $ofr)
@@ -156,7 +156,7 @@
                 @endforeach
             </div>
         </div>
-    </div>
+    </div> --}}
 
     <!-- --------------------------------testimonial--------------------------------------------- -->
     <div class="testimonial">

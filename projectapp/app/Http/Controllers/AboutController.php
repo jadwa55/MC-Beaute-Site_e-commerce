@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class AboutController extends Controller
 {
@@ -14,7 +15,7 @@ class AboutController extends Controller
      */
     public function index()
     {
-        $abouts = About::latest()->paginate(1);
+        $abouts = About::all();
 
         return view('abouts.index', [
             'abouts' => $abouts
@@ -40,11 +41,25 @@ class AboutController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'image' => 'required',
             'caption' => 'required'
         ]);
 
-        About::create($request->all());
+        if ($request->has('image')) {
+            // Get image file
+            $image = $request->file('image');
+            // Make a image name based on user name and current timestamp
+            $name = Str::slug($request->input('name')).'_'.time();
+            $folder = 'img/upload';
+
+            $img=$image->move($folder,$name.'.'.$image->getClientOriginalExtension());
+        }
+
+
+        About::create([
+            'image' => $img,
+            'caption' => $request->caption,
+        ]);
 
         return redirect()->route('abouts.index');
     }
@@ -81,10 +96,25 @@ class AboutController extends Controller
     public function update(Request $request, About $about)
     {
         $request->validate([
-            'name' => 'required',
-            'caption' => 'required'
+            'caption' => $request->caption,
+            'image' => 'required'
         ]);
-        $about->update($request->all());
+
+
+        if ($request->has('image')) {
+            // Get image file
+            $image = $request->file('image');
+            // Make a image name based on user name and current timestamp
+            $name = Str::slug($request->input('name')).'_'.time();
+            $folder = 'img/upload';
+
+            $img=$image->move($folder,$name.'.'.$image->getClientOriginalExtension());
+        }
+
+        $about->update([
+            'caption' => $request->name,
+            'image' => $img,
+        ]);
 
         return redirect()->route('abouts.index');
     }

@@ -109,14 +109,14 @@
                                         <tr>
                                             <td>{{ $category->id}}</td>
                                             <td>{{ $category->name}}</td>
-                                            <td><img width="20%"  src="{{ asset('img/'.$category->image)}}"></td>
+                                            <td><img width="20%"  src="{{ asset($category->image)}}"></td>
                                             <td>{{ date_format($category->created_at, 'jS M Y') }}</td>
                                             <td>
                                                 <form action="{{ route('categorys.destroy', $category->id) }}" method="POST">
 
-                                                    <a href="{{ route('categorys.show', $category->id) }}" title="show">
+                                                    {{-- <a href="{{ route('categorys.show', $category->id) }}" title="show">
                                                         <i class="fas fa-eye text-success  fa-lg"></i>
-                                                    </a>
+                                                    </a> --}}
 
                                                     <a href="{{ route('categorys.edit', $category->id) }}">
                                                         <i class="fas fa-edit  fa-lg"></i>

@@ -109,7 +109,6 @@ class ProjectController extends Controller
             'name' => 'required',
             'introduction' => 'required',
             'category_id' => 'required',
-            'image' => 'required',
             'quantite' => 'required',
             'cost' => 'required'
         ]);

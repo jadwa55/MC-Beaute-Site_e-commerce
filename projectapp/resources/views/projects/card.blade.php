@@ -63,7 +63,7 @@
             <tr>
                 <td>
                     <div class="cart-info">
-                        <img src="{{ asset('img/'.$project->image)}}">
+                        <img src="{{ asset($project->image)}}">
                         <div>
                             <p>{{ $project->name }}</p>
                             <small>{{ $project->cost }}</small>

@@ -108,7 +108,7 @@
                                         @foreach ($abouts as $abt)
                                         <tr>
                                             <td>{{ $abt->id}}</td>
-                                            <td>{{ $abt->image }}</td>
+                                            <td><img width="20%"  src="{{ asset($abt->image)}}"></td>
                                             <td>{{ $abt->caption}}</td>
                                             <td>{{ $abt->created_at, 'jS M Y' }}</td>
                                             <td>

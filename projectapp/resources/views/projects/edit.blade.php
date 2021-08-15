@@ -47,7 +47,7 @@
                     {{-- <input type="file" name="image" class="form-control" placeholder="{{ asset('img/'.$project->image)}}"
                         value="{{ asset('img/'.$project->image)}}"> --}}^
                         <input type="file" name="image" class="form-control" placeholder="image">
-                    <img src="img/{{ $project->image }}" width="300px">
+                    <img src="{{asset($project->image)}}" width="300px">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
