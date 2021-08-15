@@ -3,7 +3,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Project;
+// use Dotenv\Util\Str;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ProjectController extends Controller
 {
@@ -50,8 +52,24 @@ class ProjectController extends Controller
             'quantite' => 'required',
             'cost' => 'required'
         ]);
+        if ($request->has('image')) {
+            // Get image file
+            $image = $request->file('image');
+            // Make a image name based on user name and current timestamp
+            $name = Str::slug($request->input('name')).'_'.time();
+            $folder = 'img/upload';
 
-        Project::create($request->all());
+            $img=$image->move($folder,$name.'.'.$image->getClientOriginalExtension());
+        }
+
+        Project::create([
+            'name' => $request->name,
+            'introduction' => $request->introduction,
+            'category_id' => $request->category_id,
+            'image' => $img,
+            'quantite' => $request->quantite,
+            'cost' => $request->cost,
+        ]);
 
         return redirect()->route('projects.index')
             ->with('success', 'Project created successfully.');
@@ -90,12 +108,32 @@ class ProjectController extends Controller
         $request->validate([
             'name' => 'required',
             'introduction' => 'required',
-            'categories' => 'required',
+            'category_id' => 'required',
             'image' => 'required',
             'quantite' => 'required',
             'cost' => 'required'
         ]);
-        $project->update($request->all());
+
+
+        if ($request->has('image')) {
+            // Get image file
+            $image = $request->file('image');
+            // Make a image name based on user name and current timestamp
+            $name = Str::slug($request->input('name')).'_'.time();
+            $folder = 'img/upload';
+
+            $img=$image->move($folder,$name.'.'.$image->getClientOriginalExtension());
+        }
+
+
+        $project->update([
+            'name' => $request->name,
+            'introduction' => $request->introduction,
+            'category_id' => $request->category_id,
+            'image' => $img??$project->image,
+            'quantite' => $request->quantite,
+            'cost' => $request->cost,
+        ]);
 
         return redirect()->route('projects.index')
             // ->with('success', 'Project updated successfully');

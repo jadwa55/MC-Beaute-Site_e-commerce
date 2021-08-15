@@ -20,17 +20,32 @@
             </div>
             <nav>
                 <ul id="MenuItems">
-                    <li><a href="">Home</a></li>
-                    <li><a href="">Product</a></li>
+                    <li><a href="{{ route('home') }}">Home</a></li>
+                    <li><a href="{{ route('produits') }}">Product</a></li>
                     <li><a href="">About</a></li>
-                    <li><a href="">Contact</a></li>
-                    <li><a href="">Account</a></li>
+                    <li>
+                        @auth
+
+                        <a class="dropdown-item" href="#.">
+                            <form method="post" action="{{route('logout')}}"  onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                              @csrf
+                              <i class="mr-50" data-feather="power"></i> Logout
+                            </form>
+                          </a>
+                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                              @csrf
+                          </form>
+                        @endauth
+
+                        @guest
+                        <a href="{{ route('login') }}">Login/Register</a>
+                        @endguest
+                    </li>
                 </ul>
             </nav>
-            {{-- <img src="cart.png" width="30px" height="30px">
-            <img src="menu.png" class="menu-icon" onclick="menutoggle()"> --}}
-            <a href=""{{ route('panier') }}"><img src="{{asset('img/cart.png')}}" width="30px" height="30px"></a>
-            <img src="menu.png" class="menu-icon" onclick="menutoggle()">
+            <a href="{{ route('panier') }}"><img src="{{asset('img/cart.png')}}" width="30px" height="30px"></a>
+            <img src="{{asset('img/menu.png')}}" class="menu-icon" onclick="menutoggle()">
         </div>
     </div>
 <!-- ----------------cart items------------->
@@ -48,7 +63,7 @@
             <tr>
                 <td>
                     <div class="cart-info">
-                        <img src="{{ asset($project->image) }}">
+                        <img src="{{ asset('img/'.$project->image)}}">
                         <div>
                             <p>{{ $project->name }}</p>
                             <small>{{ $project->cost }}</small>

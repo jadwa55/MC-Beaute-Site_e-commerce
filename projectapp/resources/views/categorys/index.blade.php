@@ -109,7 +109,7 @@
                                         <tr>
                                             <td>{{ $category->id}}</td>
                                             <td>{{ $category->name}}</td>
-                                            <td>{{ $category->image }}</td>
+                                            <td><img width="20%"  src="{{ asset('img/'.$category->image)}}"></td>
                                             <td>{{ date_format($category->created_at, 'jS M Y') }}</td>
                                             <td>
                                                 <form action="{{ route('categorys.destroy', $category->id) }}" method="POST">

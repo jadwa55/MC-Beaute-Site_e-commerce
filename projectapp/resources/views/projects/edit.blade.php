@@ -23,7 +23,7 @@
         </div>
     @endif
 
-    <form action="{{ route('projects.update', $project->id) }}" method="POST">
+    <form action="{{ route('projects.update', $project->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
 
@@ -44,8 +44,10 @@
             <div class="col-xs-12 col-sm-12 col-md-12">
                 <div class="form-group">
                     <strong>Image:</strong>
-                    <input type="file" name="image" class="form-control" placeholder="{{ $project->image }}"
-                        value="{{ $project->image }}">
+                    {{-- <input type="file" name="image" class="form-control" placeholder="{{ asset('img/'.$project->image)}}"
+                        value="{{ asset('img/'.$project->image)}}"> --}}^
+                        <input type="file" name="image" class="form-control" placeholder="image">
+                    <img src="img/{{ $project->image }}" width="300px">
                 </div>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12">
@@ -56,7 +58,8 @@
                         <option value="{!! $item->id !!}">{!! $item->name !!}</option>
                         @endforeach
                     </select> --}}
-                    <input type="text" name="categories" class="form-control" placeholder="{{ $project->categories }}"
+                    {{-- <input type="text" name="categories" class="form-control" placeholder="Categories"> --}}
+                    <input type="text" name="category_id" class="form-control" placeholder="{{ $project->categories }}"
                         value="{{ $project->categories }}">
                 </div>
             </div>

@@ -115,7 +115,7 @@
                                             <td>{{ $project->name }}</td>
                                             <td>{{ $project->introduction }}</td>
                                             <td>{{ $project->category_id }}</td>
-                                            <td>{{ $project->image }}</td>
+                                            <td><img width="30%" src="{{ asset($project->image)}}"></td>
                                             <td>{{ $project->quantite }}</td>
                                             <td>{{ $project->cost }}</td>
                                             <td>{{ date_format($project->created_at, 'jS M Y') }}</td>

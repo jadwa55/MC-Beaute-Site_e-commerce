@@ -19,13 +19,30 @@
                     <ul id="MenuItems">
                         <li><a href="{{ route('home') }}">Home</a></li>
                         <li><a href="{{ route('produits') }}">Product</a></li>
-                        {{-- <li><a href="">About</a></li> --}}
-                        <li><a href="">Contact</a></li>
-                        <li><a href="">Account</a></li>
+                        <li><a href="">About</a></li>
+                        <li>
+                            @auth
+
+                            <a class="dropdown-item" href="#.">
+                                <form method="post" action="{{route('logout')}}"  onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                                  @csrf
+                                  <i class="mr-50" data-feather="power"></i> Logout
+                                </form>
+                              </a>
+                              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                  @csrf
+                              </form>
+                            @endauth
+
+                            @guest
+                            <a href="{{ route('login') }}">Login/Register</a>
+                            @endguest
+                        </li>
                     </ul>
                 </nav>
-                <img src="{{ asset('img/cart.png') }}" width="30px" height="30px">
-                <img src="{{ asset('img/menu.png') }}" class="menu-icon" onclick="menutoggle()">
+                <a href="{{ route('panier') }}"><img src="{{asset('img/cart.png')}}" width="30px" height="30px"></a>
+                <img src="{{asset('img/menu.png')}}" class="menu-icon" onclick="menutoggle()">
             </div>
 
         </div>
@@ -47,7 +64,7 @@
             <div class="cartes_shop col-lg-3 col-sm-6 ">
                 <div class="content_shop">
                     <div class="content-overlay"></div>
-                    <img class="content-image" src="{{ asset($project->image) }}">
+                    <img class="content-image" src="{{ asset('img/'.$project->image)}}">
                     <div class="content-details fadeIn-bottom">
                     <a class="m-2" href="#">
                         <i class="fas fa-heart fa-2x"></i>

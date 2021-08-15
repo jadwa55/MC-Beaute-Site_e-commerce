@@ -39,17 +39,6 @@
                             <a href="{{ route('login') }}">Login/Register</a>
                             @endguest
                         </li>
-
-
-
-
-
-
-
-
-                        {{-- <li><a href="" class="btn">Log Out</a></li> --}}
-                        {{-- <li><a href=""{{ route('panier') }}"><img src="{{asset('img/cart.png')}}" width="30px" height="30px"></a>
-                        <li><img src="menu.png" class="menu-icon" onclick="menutoggle()"></li> --}}
                     </ul>
                 </nav>
                 <a href="{{ route('panier') }}"><img src="{{asset('img/cart.png')}}" width="30px" height="30px"></a>
@@ -114,7 +103,7 @@
                     <div class="col-3">
                         <div class="content_shop">
                             <div class="content-overlay"></div>
-                            <img class="content-image" src="{{ $category->image }}">
+                            <img class="content-image" src="{{ asset('img/'.$category->image)}}">
                         </div>
                         <h4 class="title-pro">{{ $category->name }}</h4>
                     </div>
@@ -130,7 +119,7 @@
             <div class="cartes_shop col-lg-3 col-sm-6 ">
                 <div class="content_shop">
                     <div class="content-overlay"></div>
-                    <img class="content-image" src="{{ $project->image }}">
+                    <img class="content-image" src="{{ asset($project->image)}}">
                     <div class="content-details fadeIn-bottom">
                     <a class="m-2" href="#">
                         <i class="fas fa-heart fa-2x"></i>
