@@ -80,15 +80,15 @@
             <table>
                 <tr>
                     <td>Subtotal</td>
-                    <td>$20.00</td>
+                    <td><input onblur="findTotal()" type="text"  name="qty" id="qty1"/ ></td>
                 </tr>
                 <tr>
                     <td>Tax</td>
-                    <td>$10.00</td>
+                    <td><input onblur="findTotal()" type="text" value="10" name="qty" id="qty2"/></td>
                 </tr>
                 <tr>
                     <td>Total</td>
-                    <td>$20.00</td>
+                    <td><input type="text" name="total" id="total"/></td>
                 </tr>
                 <tr>
                 <td><button class="btn">Buy Now &#8594; </button></td>
@@ -161,6 +161,18 @@
                 }
         }
     </script>
+
+<script type="text/javascript">
+    function findTotal(){
+        var arr = document.getElementsByName('qty');
+        var tot=0;
+        for(var i=0;i<arr.length;i++){
+            if(parseInt(arr[i].value))
+                tot += parseInt(arr[i].value);
+        }
+        document.getElementById('total').value = tot;
+    }
+</script>
 
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
