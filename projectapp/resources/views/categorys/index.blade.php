@@ -13,7 +13,7 @@
     <input type="checkbox" id="nav-toggle">
     <div class="sidebar">
         <div class="sidbar-brand">
-            <h2><span class="lab la-accusoft"></span><span>JADWA</span></h2>
+            <h2><img src=" {{ asset('img/LOGO.png') }}"></h2>
         </div>
 
         <div class="sidebar-menu">

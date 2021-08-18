@@ -56,7 +56,7 @@
             <tr>
                 <th>Product</th>
                 <th>Quantity</th>
-                <th>Subtotal</th>
+                {{-- <th>Subtotal</th> --}}
             </tr>
             @foreach ($projects as $project)
             <input type="hidden" value="{{$project->id}}" name=item[{{ $loop->index}}][id]>
@@ -72,13 +72,13 @@
                     </div>
                 </td>
                 <td><input type="number" value="{{ $cards[$loop->index]['qty'] }}" name=item[{{ $loop->index }}][quantite]></td>
-                <td>$35.00</td>
+                {{-- <td>$35.00</td> --}}
             </tr>
             @endforeach
         </table>
         <div class="total-price">
             <table>
-                <tr>
+                {{-- <tr>
                     <td>Subtotal</td>
                     <td><input onblur="findTotal()" type="text"  name="qty" id="qty1"/ ></td>
                 </tr>
@@ -89,7 +89,7 @@
                 <tr>
                     <td>Total</td>
                     <td><input type="text" name="total" id="total"/></td>
-                </tr>
+                </tr> --}}
                 <tr>
                 <td><button class="btn">Buy Now &#8594; </button></td>
                 <td>
@@ -162,7 +162,7 @@
         }
     </script>
 
-<script type="text/javascript">
+{{-- <script type="text/javascript">
     function findTotal(){
         var arr = document.getElementsByName('qty');
         var tot=0;
@@ -172,7 +172,7 @@
         }
         document.getElementById('total').value = tot;
     }
-</script>
+</script> --}}
 
 
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
